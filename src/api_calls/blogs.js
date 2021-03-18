@@ -1,6 +1,7 @@
 //Dependancies
 import axios from 'axios';
 
+//Api call to get all blogs
 export function getAllBlogs() {
     let returnData = axios.get('blogs')
         .then(blogs => {
@@ -11,7 +12,7 @@ export function getAllBlogs() {
         })
         .catch(err => {
             console.log(err);
-            return false;
+            return 'error';
         });
 
     return returnData;
