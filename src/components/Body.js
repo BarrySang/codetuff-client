@@ -5,7 +5,8 @@ class Body extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            blogs: []
+            blogs: [],
+            bodyData: ''
         }
     }
 
@@ -13,19 +14,23 @@ class Body extends React.Component {
         getAllBlogs()
             .then(blogs => {
                 this.setState({blogs});
+                this.checkBlogs();
             });
     }
 
-    render() {
-        
+    
+    checkBlogs = () => {
         if(this.state.blogs === false) {
-            return <p>There are currently no blogs</p>
+            this.setState({bodyData: <p>There are currently no blogs</p>});
         } else if(this.state.blogs === 'error') {
-            return <p>An error ocurred</p>
+            this.setState({bodyData: <p>An error ocurred</p>})
+        } else {
+            this.showBlogs();
         }
+    }
 
+    showBlogs = () => {
         //Template for rendering blogs
-        
         const blogs = this.state.blogs.map((blog) => 
             <li key={blog.id}>
                 <div>
@@ -34,13 +39,20 @@ class Body extends React.Component {
                 </div>
             </li>
         );
+
+        this.setState({bodyData: <div>
+                <ul>
+                    {blogs}
+                </ul>
+            </div>});
+    }
+
+    render() {
         
 
         return(
             <div>
-                <ul>
-                    {blogs}
-                </ul>
+                {this.state.bodyData}
             </div>
         )
     }
