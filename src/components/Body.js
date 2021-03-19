@@ -25,14 +25,16 @@ class Body extends React.Component {
         }
 
         //Template for rendering blogs
+        
         const blogs = this.state.blogs.map((blog) => 
             <li key={blog.id}>
                 <div>
                     <h3>{blog.title}</h3>
-                    <p>{blog.body}</p>
+                    <p>{blog.preamble}</p>
                 </div>
             </li>
         );
+        
 
         return(
             <div>

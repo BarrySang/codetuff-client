@@ -5,7 +5,7 @@ import axios from 'axios';
 export function getAllBlogs() {
     let returnData = axios.get('blogs')
         .then(blogs => {
-            if(!blogs) {
+            if(blogs.data.found === false) {
                 return false;
             }
             return blogs.data;
