@@ -1,16 +1,15 @@
 import React from 'react';
-import Body from './components/Body';
-import Footer from './components/Footer';
-import Header from './components/Header';
+import { Route, Switch } from 'react-router-dom';
+import Home from './components/Home';
 
 class App extends React.Component {
   render() {
     return (
-      <div className="container">
-        <Header />
-        <Body />
-        <Footer />
-      </div>
+      <main>
+        <Switch>
+          <Route path="/" component={Home} />
+        </Switch>
+      </main>
     )
   }
 }

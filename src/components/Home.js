@@ -1,8 +1,8 @@
 import React from 'react';
 import {getAllBlogs} from '../api_calls/blogs';
-import BodyContent from './BodyContent';
+import Layout from './Layout';
 
-class Body extends React.Component {
+class Home extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -37,31 +37,29 @@ class Body extends React.Component {
         const blogs = this.state.blogs.map((blog) => 
             <li key={blog.id}>
                 <div>
-                    <h3 onClick={this.blogSelected}>{blog.title}</h3>
+                    <h3 onClick={this.blogSelected.bind(this, blog.id)}>{blog.title}</h3>
                     <p>{blog.preamble}</p>
                 </div>
             </li>
         );
 
-        this.setState({bodyData: <div>
-                <ul>
-                    {blogs}
-                </ul>
-            </div>});
-    }
-
-    blogSelected = () => {
-        console.log('blog selected');
+        this.setState({bodyData: blogs});
     }
 
     render() {
-
+        const Body = () => {
+            return(
+                <div>
+                    <ul>
+                        {this.state.bodyData}
+                    </ul>
+                </div>
+            )
+        }
         return(
-            <div>
-                <BodyContent contents={this.state.bodyData}/>
-            </div>
+            <Layout Body={Body}></Layout>
         )
     }
 }
 
-export default Body;
+export default Home;
