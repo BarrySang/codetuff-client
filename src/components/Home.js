@@ -21,7 +21,7 @@ class Home extends React.Component {
     }
 
     //Check the value of blogs in the state
-    checkBlogs = () => {
+    checkBlogs = (blogs) => {
         if(this.state.blogs === false) {
             this.setState({bodyData: <p>There are currently no blogs</p>});
         } else if(this.state.blogs === 'error') {
@@ -36,10 +36,10 @@ class Home extends React.Component {
         //Template for rendering blogs
         const blogs = this.state.blogs.map((blog) => 
             <li key={blog.id}>
-                <div>
-                    <h3 onClick={this.blogSelected.bind(this, blog.id)}>{blog.title}</h3>
-                    <p>{blog.preamble}</p>
-                </div>
+                        <div>
+                            <h3>{blog.title}</h3>
+                            <p>{blog.preamble}</p>
+                        </div>                    
             </li>
         );
 
@@ -56,8 +56,11 @@ class Home extends React.Component {
                 </div>
             )
         }
+        
         return(
+            <div>
             <Layout Body={Body}></Layout>
+            </div>
         )
     }
 }
