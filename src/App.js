@@ -8,7 +8,7 @@ function App() {
     <main>
       <Switch>
         <Route path="/" component={Home} exact/>
-        <Route path="/showblogs/:id" component={ShowBlog}/>
+        <Route path="/blogs/:id" component={ShowBlog}/>
       </Switch>
     </main>
   )

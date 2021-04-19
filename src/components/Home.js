@@ -36,10 +36,12 @@ class Home extends React.Component {
         //Template for rendering blogs
         const blogs = this.state.blogs.map((blog) => 
             <li key={blog.id}>
-                        <div>
-                            <h3>{blog.title}</h3>
-                            <p>{blog.preamble}</p>
-                        </div>                    
+                <a href={"/blogs/" +blog.id}>
+                    <div>
+                        <h3>{blog.title}</h3>
+                        <p>{blog.preamble}</p>
+                    </div>                    
+                </a>
             </li>
         );
 
