@@ -1,6 +1,7 @@
 import React from 'react';
 import {getAllBlogs} from '../api_calls/blogs';
 import Layout from './Layout';
+import '../css/home.css';
 
 class Home extends React.Component {
     constructor(props) {
@@ -36,7 +37,7 @@ class Home extends React.Component {
         //Template for rendering blogs
         const blogs = this.state.blogs.map((blog) => 
             <li key={blog.id}>
-                <a href={"/blogs/" +blog.id}>
+                <a href={"/blogs/" +blog.id} id="blog-a">
                     <div>
                         <h3>{blog.title}</h3>
                         <p>{blog.preamble}</p>
