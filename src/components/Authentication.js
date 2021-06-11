@@ -5,7 +5,7 @@ class Authentication extends React.Component {
     render() {
         return (
             <div className="d-flex justify-content-end auth-container">
-                <a href="#">Login</a>
+                <a href="login">Login</a>
                 <a href="#">Signup</a>
             </div>
         )
