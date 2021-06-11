@@ -1,3 +1,6 @@
 .auth-container a {
     margin-right: 1vw;
+    text-decoration: none;
+    color:cadetblue;
+    font-size: larger;
 }
